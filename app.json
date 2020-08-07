@@ -1,0 +1,12 @@
+{
+  "name": "hello-charts",
+  "displayName": "hello-charts",
+  "expo": {
+    "name": "hello-charts",
+    "slug": "hello-charts",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
