@@ -1,11 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, Button } from 'react-native';
-import HighchartsReactNative from '@highcharts/highcharts-react-native';
-//import HighchartsReactNative from './highcharts/src/HighchartsReactNative';
-//'./highcharts/src/HighchartsReactNative';
-//import { WebView } from 'react-native-webview';
-import { chartOptions } from './Data';
-
+import { HcWrapper } from './HcWrapper';
+import { chartDef } from './Data';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +12,8 @@ export default class App extends React.Component {
   }
 
   render() {
+    const factor = 250;
+
     if(!this.state.visible)
       return (
         <SafeAreaView style={styles.container}>
@@ -37,18 +35,10 @@ export default class App extends React.Component {
         
         <ScrollView style={styles.scrollView}>
           {
-            chartOptions.map((option, index) => (
-              <React.Fragment key={ option.mykey }>
-                <Text>{option.title.text}</Text>
-                <HighchartsReactNative
-                  useCDN={false}
-                  styles={styles.chart}
-                  options={option}
-                //devPath={'192.168.0.1:12345'}
-                //useCDN={true}
-                //useSSL={true}
-                //modules={modules}
-                />
+            chartDef.map((definition, index) => (
+              <React.Fragment key={ definition.mykey }>
+                <Text>{definition.options.title.text}</Text>
+                <HcWrapper options={definition.options} modules={definition.modules} delay={ index*factor }/>
               </React.Fragment>
             ))
           }
@@ -62,14 +52,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     flex: 1
-  },
-  chart: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-    height: 300,
-    borderColor: 'blue',
-    borderWidth: 1
   },
   button: {
     justifyContent: 'center'

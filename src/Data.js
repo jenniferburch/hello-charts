@@ -65,7 +65,7 @@ const funnel = {
     name: 'Unique users',
     data: [['Website visits', 15654], ['Downloads', 4064], ['Requested price list', 1987], ['Invoice sent', 976], ['Finalized', 846]]
   }],
-  /*responsive: {
+  responsive: {
     rules: [{
       condition: { maxWidth: 300 },
       chartOptions: {
@@ -78,7 +78,7 @@ const funnel = {
         }
       }
     }]
-  }*/
+  }
 }
 
 const boxplot = {
@@ -260,21 +260,21 @@ const areaRangeAndLine = {
 }
 
 
-export const chartOptions = [
-  { mykey: 'k-arearangeandline', ...areaRangeAndLine },
-  { mykey: 'k-multix', ...multiX },
-  { mykey: 'k-multiy', ...multiY },
-  { mykey: 'k-scatter', ...scatter },
-  { mykey: 'k-boxplot', ...boxplot },
-  //{ mykey: 'k-funnel', ...funnel },
-  { mykey: 'k-bubble', title: { text: 'BUBBLE' }, chart: { type: 'packedbubble' }, series: [{ data: [50, 12, 33, 45, 60] }] },
-  { mykey: 'k-combined', ...combined },
-  { mykey: 'k-stackbarpercent', title: { text: 'STACK BAR %' }, chart: { type: 'bar' }, series: dataD, plotOptions: { bar: { stacking: 'percent' } } },
-  { mykey: 'k-stackbar', title: { text: 'STACK BAR' }, chart: { type: 'bar' }, series: dataD, plotOptions: { bar: { stacking: 'normal' } } },
-  { mykey: 'k-bar', title: { text: 'BAR' }, chart: { type: 'bar' }, series: dataD },
-  { mykey: 'k-stackareapercent', title: { text: 'STACK AREA %' }, chart: { type: 'area' }, series: dataD, plotOptions: { area: { stacking: 'percent' } } },
-  { mykey: 'k-stackarea', title: { text: 'STACK AREA' }, chart: { type: 'area' }, series: dataD, plotOptions: { area: { stacking: 'normal' } } },
-  { mykey: 'k-pie', title: { text: 'PIE' }, chart: { type: 'pie' }, series: [dataA] },
-  { mykey: 'k-column', title: { text: 'COLUMN' }, chart: { type: 'column' }, series: [dataB, dataC] },
-  { mykey: 'k-line', title: { text: 'LINE' }, chart: { type: 'line' }, series: [dataB, dataC] },
+export const chartDef = [
+  { mykey: 'k-line', options: { title: { text: 'LINE' }, chart: { type: 'line' }, series: [dataB, dataC]} },
+  { mykey: 'k-column', options: { title: { text: 'COLUMN' }, chart: { type: 'column' }, series: [dataB, dataC] }},
+  { mykey: 'k-pie', options: { title: { text: 'PIE' }, chart: { type: 'pie' }, series: [dataA] }},
+  { mykey: 'k-arearangeandline', options: { ...areaRangeAndLine }},
+  { mykey: 'k-multix', options: { ...multiX }},
+  { mykey: 'k-multiy', options: { ...multiY }},
+  { mykey: 'k-scatter', options: { ...scatter }},
+  { mykey: 'k-boxplot', options: { ...boxplot }},
+  { mykey: 'k-bubble', options: { title: { text: 'BUBBLE' }, chart: { type: 'packedbubble' }, series: [{ data: [50, 12, 33, 45, 60] }] }},
+  { mykey: 'k-combined', options: { ...combined }},
+  { mykey: 'k-stackbarpercent', options: { title: { text: 'STACK BAR %' }, chart: { type: 'bar' }, series: dataD, plotOptions: { bar: { stacking: 'percent' } } }},
+  { mykey: 'k-stackbar', options: { title: { text: 'STACK BAR' }, chart: { type: 'bar' }, series: dataD, plotOptions: { bar: { stacking: 'normal' } } }},
+  { mykey: 'k-bar', options: { title: { text: 'BAR' }, chart: { type: 'bar' }, series: dataD }},
+  { mykey: 'k-stackareapercent', options: { title: { text: 'STACK AREA %' }, chart: { type: 'area' }, series: dataD, plotOptions: { area: { stacking: 'percent' } } }},
+  { mykey: 'k-stackarea', options: { title: { text: 'STACK AREA' }, chart: { type: 'area' }, series: dataD, plotOptions: { area: { stacking: 'normal' } } }},
+  { mykey: 'k-funnel', modules: ['funnel'], options: {...funnel} }
 ]
