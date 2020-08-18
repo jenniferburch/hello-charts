@@ -8,15 +8,17 @@ export class HcWrapper extends React.Component {
     super(props);
 
     this.state = {
-      loading: true
+      loading: false
     }
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loading: false });
-      console.log("Loading ", this.props.options.title.text);
-    }, this.props.delay);
+    console.log("Loading ", this.props.options.title.text);
+    
+    // setTimeout(() => {
+    //   this.setState({ loading: false });
+    //   console.log("Loading ", this.props.options.title.text);
+    // }, this.props.delay);
   }
 
   componentWillUnmount() {
